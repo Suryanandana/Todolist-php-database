@@ -1,11 +1,11 @@
 <?php
 //Tampilan daftar todo di list
 
-require_once '../Helper/Input.php';
-require_once '../Model/TodoList.php';
-require_once 'ViewAddTodoList.php';
-require_once 'ViewRemoveTodoList.php';
-require_once '../Logic/ShowTodoList.php';
+require_once __DIR__ . '/../Helper/Input.php';
+require_once __DIR__ . '/../Model/TodoList.php';
+require_once __DIR__ . '/ViewAddTodoList.php';
+require_once __DIR__ . '/ViewRemoveTodoList.php';
+require_once __DIR__ . '/../Logic/ShowTodoList.php';
 
 function viewShowTodoList(){
 

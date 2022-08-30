@@ -1,11 +1,11 @@
 <?php
 // Tampilan Hapus Todo di List
-require_once '../Model/TodoList.php';
-require_once '../Helper/Input.php';
-require_once '../Logic/RemoveTodoList.php';
+require_once __DIR__ . '/../Model/TodoList.php';
+require_once __DIR__ . '/../Helper/Input.php';
+require_once __DIR__ . '/../Logic/RemoveTodoList.php';
 
 function viewRemoveTodoList(){
-    
+
     echo 'HAPUS TODOLIST'.PHP_EOL;
     $todo = input('Hapus todolist (x jika batal)');
 
