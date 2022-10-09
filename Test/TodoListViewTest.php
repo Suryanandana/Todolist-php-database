@@ -23,5 +23,21 @@ function testViewShowTodoList(){
     $todoListView->showTodoList();
 }
 
-testViewShowTodoList();
+
+function testViewAddTodoList(){
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todoListService = new TodoListServiceImpl($todoListRepository);
+    $todoListView = new TodoListView($todoListService);
+
+    $todoListService->addTodoList("Belajar PHP");
+    $todoListService->addTodoList("Belajar Ruby");
+    $todoListService->addTodoList("Belajar Javascript");
+
+    $todoListService->showTodoList();
+    $todoListView->addTodoList();
+    $todoListService->showTodoList();
+}
+
+
+testViewAddTodoList();
 ?>
