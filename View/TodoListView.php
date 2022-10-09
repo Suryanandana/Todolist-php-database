@@ -2,9 +2,16 @@
 namespace View {
 
     use Service\TodoListService;
+    use Helper\InputHelper;
 
     class TodoListView {
         private TodoListService $todoListService;
+
+        function __construct(TodoListService $todoListService)
+        {
+            $this->todoListService = $todoListService;
+        }
+
         function showTodoList(): void {
             while(true){
 
@@ -15,7 +22,7 @@ namespace View {
                 echo "2 Hapus Todo".PHP_EOL;
                 echo "x Keluar Todo".PHP_EOL;
             
-                $result = input("Pilih").PHP_EOL;
+                $result = InputHelper::input("Pilih").PHP_EOL;
                     
                 if($result == "1"){
                     $this->addTodoList();
@@ -28,6 +35,7 @@ namespace View {
                 }
             
             }
+            echo "Sampai Jumpa...";
         }
 
         function addTodoList(): void {
