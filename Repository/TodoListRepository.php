@@ -22,7 +22,19 @@ namespace Repository{
         }
 
         public function remove(int $number): bool{
-            return false;
+
+            if ($number > sizeof($this->todo)){
+                return false;
+            }
+
+            while($number < sizeof($this->todo)){
+                $this->todo[$number] = $this->todo[$number + 1];
+                $number++;
+            }
+
+            unset($this->todo[sizeof($this->todo)]);
+
+            return true;
         }
 
         public function findAll(): array{

@@ -37,7 +37,11 @@ namespace Service {
         }
 
         function removeTodoList(int $number): void{
-
+            if($this->todo->remove($number)){
+                echo "Berhasil menghapus todolist";
+            } else {
+                echo "Gagal menghapus todolist";
+            }
         }
     }
 
