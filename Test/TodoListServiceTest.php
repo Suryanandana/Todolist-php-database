@@ -9,10 +9,22 @@ use Service\TodoListServiceImpl;
 
 function testShowTodoList(){
     $todoListRepository = new TodoListRepositoryImpl();
-    $todoListRepository->todo = [1=>"Belajar OOP", 2=>"Belajar MVC", 3=>"Belajar Framework"];
+    $todoListRepository->todo[1] = new TodoList("Belajar OOP");
+    $todoListRepository->todo[2] = new TodoList("Belajar MVC");
+    $todoListRepository->todo[3] = new TodoList("Belajar Framework");
     $todolistService = new TodoListServiceImpl($todoListRepository);
     $todolistService->showTodoList();
 }
-testShowTodoList();
+
+function testAddTodoList(){
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todolistService = new TodoListServiceImpl($todoListRepository);
+    $todolistService->addTodoList("Belajar Library");
+    $todolistService->addTodoList("Belajar Package Manager");
+    $todolistService->addTodoList("Belajar Unit Test");
+    $todolistService->showTodoList();
+}
+
+testAddTodoList();
 
 ?>

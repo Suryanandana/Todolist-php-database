@@ -26,13 +26,14 @@ namespace Service {
             echo "TODOLIST:".PHP_EOL;
             $todolist = $this->todo->findall();
             foreach($todolist as $number => $value){
-                echo "$number. $value".PHP_EOL;
+                echo "$number. " . $value->getTodo() . PHP_EOL;
             }
         }
 
         function addTodoList(string $todo): void{
             $todoList = new TodoList($todo);
             $this->todo->save($todoList);
+            echo "SUKSES MENAMBAH TODOLIST" . PHP_EOL;
         }
 
         function removeTodoList(int $number): void{
@@ -41,5 +42,4 @@ namespace Service {
     }
 
 }
-
 ?>
