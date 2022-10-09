@@ -39,7 +39,13 @@ namespace View {
         }
 
         function addTodoList(): void {
+            $todo = InputHelper::input('Tambah todolist (x jika batal)');
 
+            if(trim($todo) == 'x'){
+                echo "Batal menambah todo";
+            } else {
+                $this->todoListService->addTodoList($todo);
+            }
         }
 
         function removeTodoList(): void {
