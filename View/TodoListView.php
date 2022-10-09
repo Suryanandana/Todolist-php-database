@@ -49,7 +49,19 @@ namespace View {
         }
 
         function removeTodoList(): void {
-
+            echo 'HAPUS TODOLIST'.PHP_EOL;
+            $todo = InputHelper::input('Hapus todolist (x jika batal)');
+        
+            if(trim($todo) == 'x'){
+                echo 'Batal menghapus todolist' . PHP_EOL;
+            } else {
+                $success = $this->todoListService->removeTodoList($todo);
+                if($success){
+                    echo "Berhasil menghapus todo $todo" . PHP_EOL;
+                } else {
+                    echo "Gagal menghapus todo" . PHP_EOL;
+                }
+            }
         }
 
     }
