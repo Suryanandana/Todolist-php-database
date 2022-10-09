@@ -25,6 +25,16 @@ function testAddTodoList(){
     $todolistService->showTodoList();
 }
 
-testAddTodoList();
+function testRemoveTodoList(){
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todolistService = new TodoListServiceImpl($todoListRepository);
+    $todolistService->addTodoList("Belajar Library");
+    $todolistService->addTodoList("Belajar Package Manager");
+    $todolistService->addTodoList("Belajar Unit Test");
+    $todolistService->removeTodoList(2);
+    $todolistService->showTodoList();
+}
+
+testRemoveTodoList();
 
 ?>
