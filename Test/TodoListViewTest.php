@@ -38,6 +38,19 @@ function testViewAddTodoList(){
     $todoListService->showTodoList();
 }
 
+function testViewRemoveTodoList(){
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todoListService = new TodoListServiceImpl($todoListRepository);
+    $todoListView = new TodoListView($todoListService);
 
-testViewAddTodoList();
+    $todoListService->addTodoList("Belajar PHP");
+    $todoListService->addTodoList("Belajar Ruby");
+    $todoListService->addTodoList("Belajar Javascript");
+
+    $todoListService->showTodoList();
+    $todoListView->removeTodoList();
+    $todoListService->showTodoList();
+}
+
+testViewRemoveTodoList();
 ?>
