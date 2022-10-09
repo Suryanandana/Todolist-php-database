@@ -9,11 +9,13 @@ namespace Entity {
             $this->todo = $todo;
         }
 
-        public function getTodo(){
+        public function getTodo(): string
+        {
             return $this->todo;
         }
         
-        public function setTodo(string $todo){
+        public function setTodo(string $todo): void
+        {
             $this->todo = $todo;
         }
     }
