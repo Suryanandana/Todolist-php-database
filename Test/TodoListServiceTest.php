@@ -9,14 +9,12 @@ use Entity\TodoList;
 use Repository\TodoListRepositoryImpl;
 use Service\TodoListServiceImpl;
 
-// function testShowTodoList(){
-//     $todoListRepository = new TodoListRepositoryImpl();
-//     $todoListRepository->todo[1] = new TodoList("Belajar OOP");
-//     $todoListRepository->todo[2] = new TodoList("Belajar MVC");
-//     $todoListRepository->todo[3] = new TodoList("Belajar Framework");
-//     $todolistService = new TodoListServiceImpl($todoListRepository);
-//     $todolistService->showTodoList();
-// }
+function testShowTodoList(){
+    $conn = Database::getConnection();
+    $todoListRepository = new TodoListRepositoryImpl($conn);
+    $todolistService = new TodoListServiceImpl($todoListRepository);
+    $todolistService->showTodoList();
+}
 
 function testAddTodoList(){
     $conn = Database::getConnection();
@@ -39,6 +37,6 @@ function testRemoveTodoList(){
     $todolistService->removeTodoList(5);
 }
 
-testRemoveTodoList();
+testShowTodoList();
 
 ?>
