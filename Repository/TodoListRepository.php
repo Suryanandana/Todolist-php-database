@@ -34,18 +34,33 @@ namespace Repository{
 
         public function remove(int $number): bool{
 
-            if ($number > sizeof($this->todo)){
+            // if ($number > sizeof($this->todo)){
+            //     return false;
+            // }
+
+            // while($number < sizeof($this->todo)){
+            //     $this->todo[$number] = $this->todo[$number + 1];
+            //     $number++;
+            // }
+
+            // unset($this->todo[sizeof($this->todo)]);
+
+            // return true;
+
+            $sql = "SELECT * FROM todolist WHERE id = (?)";
+            $statement = $this->conn->prepare($sql);
+            $statement->execute([$number]);
+
+            if($statement->fetch()){
+                // jika id todolist ada maka hapus
+                $sql = "DELETE FROM todolist WHERE id = (?)";
+                $statement = $this->conn->prepare($sql);
+                $statement->execute([$number]);
+                return true;
+            } else {
+                // jika id todolist tidak ada maka false
                 return false;
             }
-
-            while($number < sizeof($this->todo)){
-                $this->todo[$number] = $this->todo[$number + 1];
-                $number++;
-            }
-
-            unset($this->todo[sizeof($this->todo)]);
-
-            return true;
         }
 
         public function findAll(): array{

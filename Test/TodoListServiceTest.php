@@ -28,16 +28,17 @@ function testAddTodoList(){
     //$todolistService->showTodoList();
 }
 
-// function testRemoveTodoList(){
-//     $todoListRepository = new TodoListRepositoryImpl();
-//     $todolistService = new TodoListServiceImpl($todoListRepository);
-//     $todolistService->addTodoList("Belajar Library");
-//     $todolistService->addTodoList("Belajar Package Manager");
-//     $todolistService->addTodoList("Belajar Unit Test");
-//     $todolistService->removeTodoList(2);
-//     $todolistService->showTodoList();
-// }
+function testRemoveTodoList(){
+    $conn = Database::getConnection();
+    $todoListRepository = new TodoListRepositoryImpl($conn);
+    $todolistService = new TodoListServiceImpl($todoListRepository);
+    $todolistService->removeTodoList(1);
+    $todolistService->removeTodoList(2);
+    $todolistService->removeTodoList(3);
+    $todolistService->removeTodoList(4);
+    $todolistService->removeTodoList(5);
+}
 
-testAddTodoList();
+testRemoveTodoList();
 
 ?>
