@@ -55,12 +55,7 @@ namespace View {
             if(trim($todo) == 'x'){
                 echo 'Batal menghapus todolist' . PHP_EOL;
             } else {
-                $success = $this->todoListService->removeTodoList($todo);
-                if($success){
-                    echo "Berhasil menghapus todo $todo" . PHP_EOL;
-                } else {
-                    echo "Gagal menghapus todo" . PHP_EOL;
-                }
+                $this->todoListService->removeTodoList($todo);
             }
         }
 
